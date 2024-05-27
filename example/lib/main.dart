@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     _voipPush.onTokenRefresh.listen(onToken);
 
     // do configure voip push
-    _voipPush.configure(onMessage: onMessage, onResume: onResume);
+   // _voipPush.configure(onMessage: onMessage, onResume: onResume);
   }
 
   /// Called when the device token changes
@@ -42,27 +42,27 @@ class _MyAppState extends State<MyApp> {
   ///
   /// [isLocal] is true if its a local notification or false otherwise (remote notification)
   /// [payload] the notification payload to be processed. use this to present a local notification
-  Future<dynamic> onMessage(bool isLocal, Map<String, dynamic> payload) {
+  String onMessage(bool isLocal, Map<String, dynamic> payload) {
     // handle foreground notification
     print("received on foreground payload: $payload, isLocal=$isLocal");
-    return null;
+    return "";
   }
 
   /// Called to receive notification when app is resuming from background
   ///
   /// [isLocal] is true if its a local notification or false otherwise (remote notification)
   /// [payload] the notification payload to be processed. use this to present a local notification
-  Future<dynamic> onResume(bool isLocal, Map<String, dynamic> payload) {
-    // handle background notification
-    print("received on background payload: $payload, isLocal=$isLocal");
-    showLocalNotification(payload);
-    return null;
-  }
+  // Future<dynamic> onResume(bool isLocal, Map<String, dynamic> payload) {
+  //   // handle background notification
+  //   print("received on background payload: $payload, isLocal=$isLocal");
+  //   showLocalNotification(payload);
+  //   return null;
+  // }
 
   showLocalNotification(Map<String, dynamic> notification) {
     String alert = notification["aps"]["alert"];
     _voipPush.presentLocalNotification(LocalNotification(
-      alertBody: "Hello $alert",
+      alertBody: "Hello $alert", alertAction: 'hi',
     ));
   }
 

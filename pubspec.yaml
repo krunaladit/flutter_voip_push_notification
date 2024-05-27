@@ -1,7 +1,6 @@
 name: flutter_voip_push_notification
 description: Flutter VoIP Push Notification - Currently iOS >= 8.0 only
 version: 0.0.3
-author: Onyemaechi Okafor <peerwaya@yahoo.com>
 homepage: https://github.com/peerwaya/flutter_voip_push_notification
 
 environment:
@@ -24,10 +23,16 @@ flutter:
   # The androidPackage and pluginClass identifiers should not ordinarily
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
+#  plugin:
+#    androidPackage: com.example.flutter_voip_push_notification
+#    pluginClass: FlutterVoipPushNotificationPlugin
   plugin:
-    androidPackage: com.example.flutter_voip_push_notification
-    pluginClass: FlutterVoipPushNotificationPlugin
-
+    platforms:
+#      android:
+#        package: me.carda.awesome_notifications
+#        pluginClass: AwesomeNotificationsPlugin
+      ios:
+         pluginClass: FlutterVoipPushNotificationPlugin
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
